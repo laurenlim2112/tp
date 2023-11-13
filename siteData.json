@@ -7,11 +7,11 @@
       "headings": {
         "about-us": "About Us",
         "project-team": "Project team",
-        "john-doe": "John Doe",
-        "jane-doe": "Jane Doe",
-        "johnny-doe": "Johnny Doe",
-        "jean-doe": "Jean Doe",
-        "james-doe": "James Doe"
+        "tiw-kang-xu": "Tiw Kang Xu",
+        "lauren-lim-yi-xing": "Lauren Lim Yi-Xing",
+        "lin-chenyu": "Lin Chenyu",
+        "ng-chuan-xin": "Ng Chuan Xin",
+        "kam-jia-yue": "Kam Jia Yue"
       },
       "headingKeywords": {}
     },
@@ -40,8 +40,7 @@
       "src": "DeveloperGuide.md",
       "title": "Developer Guide",
       "headings": {
-        "ab-3-developer-guide": "AB-3 Developer Guide",
-        "acknowledgements": "Acknowledgements",
+        "tutorium-developer-guide": "Tutorium Developer Guide",
         "setting-up-getting-started": "Setting up, getting started",
         "design": "Design",
         "architecture": "Architecture",
@@ -51,8 +50,13 @@
         "storage-component": "Storage component",
         "common-classes": "Common classes",
         "implementation": "Implementation",
+        "filter-feature": "Filter feature",
+        "uplevel-undolevel-feature": "Uplevel, Undolevel feature",
+        "sort-feature": "Sort feature",
+        "import-feature": "Import feature",
+        "table-feature": "Table feature",
+        "export-feature": "Export feature",
         "proposed-undo-redo-feature": "[Proposed] Undo/redo feature",
-        "proposed-data-archiving": "[Proposed] Data archiving",
         "documentation-logging-testing-configuration-dev-ops": "Documentation, logging, testing, configuration, dev-ops",
         "appendix-requirements": "Appendix: Requirements",
         "product-scope": "Product scope",
@@ -60,10 +64,29 @@
         "use-cases": "Use cases",
         "non-functional-requirements": "Non-Functional Requirements",
         "glossary": "Glossary",
-        "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
+        "appendix-instructions-for-manual-testing": "Appendix: Instructions for Manual Testing",
         "launch-and-shutdown": "Launch and shutdown",
-        "deleting-a-person": "Deleting a person",
-        "saving-data": "Saving data"
+        "listing-all-students": "Listing all students",
+        "adding-a-student": "Adding a student",
+        "importing-student-data": "Importing student data",
+        "deleting-a-student": "Deleting a student",
+        "editing-a-student": "Editing a student",
+        "searching-for-students": "Searching for students",
+        "filtering-the-list-of-students": "Filtering the list of students",
+        "sorting-the-list-of-students": "Sorting the list of students",
+        "creating-a-statistical-table": "Creating a statistical table",
+        "creating-a-bar-chart": "Creating a bar chart",
+        "exporting-data-visualizations": "Exporting data visualizations",
+        "creating-a-line-graph": "Creating a line graph",
+        "updating-sec-levels": "Updating sec levels",
+        "undoing-a-sec-level-update": "Undoing a sec level update",
+        "saving-data": "Saving data",
+        "appendix-effort": "Appendix: Effort",
+        "difficulty-level": "Difficulty level",
+        "challenges-faced": "Challenges faced",
+        "effort-required": "Effort required",
+        "achievements": "Achievements",
+        "appendix-planned-enhancements": "Appendix: Planned Enhancements"
       },
       "headingKeywords": {}
     },
@@ -107,23 +130,36 @@
       "src": "UserGuide.md",
       "title": "User Guide",
       "headings": {
-        "ab-3-user-guide": "AB-3 User Guide",
-        "quick-start": "Quick start",
+        "tutorium-user-guide": "Tutorium User Guide",
+        "how-to-use-this-user-guide": "How to Use This User Guide",
+        "icon-coloured-boxes": "Icon Coloured Boxes",
+        "table-of-contents": "Table of Contents",
+        "quick-start": "Quick Start",
+        "user-interface-layout": "User Interface Layout",
         "features": "Features",
-        "viewing-help-help": "Viewing help : help",
-        "adding-a-person-add": "Adding a person: add",
-        "listing-all-persons-list": "Listing all persons : list",
-        "editing-a-person-edit": "Editing a person : edit",
-        "locating-persons-by-name-find": "Locating persons by name: find",
-        "deleting-a-person-delete": "Deleting a person : delete",
-        "clearing-all-entries-clear": "Clearing all entries : clear",
-        "exiting-the-program-exit": "Exiting the program : exit",
-        "saving-the-data": "Saving the data",
-        "editing-the-data-file": "Editing the data file",
-        "archiving-data-files-coming-in-v2-0": "Archiving data files [coming in v2.0]",
+        "view-help-help": "View help : help",
+        "view-a-list-of-all-students-list": "View a list of all students : list",
+        "add-a-student-s-data-add": "Add a student's data: add",
+        "import-data-from-csv-file-import": "Import data from .csv file: import",
+        "edit-a-student-s-data-edit": "Edit a student's data : edit",
+        "search-for-data-search": "Search for data : search",
+        "delete-data-delete": "Delete data : delete",
+        "update-sec-level-uplevel-undolevel": "Update sec level : uplevel, undolevel",
+        "filter-data-filter": "Filter data : filter",
+        "sort-data-sort": "Sort data : sort",
+        "clear-all-entries-clear": "Clear all entries : clear",
+        "show-statistical-table-table": "Show statistical table: table",
+        "show-bar-chart-bar": "Show bar chart: bar",
+        "show-line-chart-trend": "Show line chart: trend",
+        "export-visual-representation-export": "Export visual representation : export",
+        "exit-program-exit": "Exit program : exit",
+        "archive-data-files-coming-in-v2-0": "Archive data files [coming in v2.0]",
+        "additional-info": "Additional Info",
+        "save-data": "Save data",
+        "edit-data-file": "Edit data file",
+        "command-summary": "Command Summary",
         "faq": "FAQ",
-        "known-issues": "Known issues",
-        "command-summary": "Command summary"
+        "known-issues": "Known Issues"
       },
       "headingKeywords": {}
     },
@@ -131,15 +167,47 @@
       "src": "index.md",
       "title": "",
       "headings": {
-        "addressbook-level-3": "AddressBook Level-3"
+        "tutorium": "Tutorium"
       },
       "headingKeywords": {}
     },
     {
-      "src": "team/johndoe.md",
-      "title": "John Doe's Project Portfolio Page",
+      "src": "team/chuanxinng.md",
+      "title": "Ng Chuan Xin's Project Portfolio Page",
       "headings": {
-        "project-addressbook-level-3": "Project: AddressBook Level 3"
+        "project-tutorium": "Project: Tutorium"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/kamjiayue.md",
+      "title": "Kam Jia Yue's Project Portfolio Page",
+      "headings": {
+        "project-tutorium": "Project: Tutorium"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/laurenlim2112.md",
+      "title": "Lauren Lim Yi-Xing's Project Portfolio Page",
+      "headings": {
+        "project-tutorium": "Project: Tutorium"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/linchenyu2030s.md",
+      "title": "Lin Chenyu's Project Portfolio Page",
+      "headings": {
+        "project-tutorium": "Project: Tutorium"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/tiwkangxu.md",
+      "title": "Tiw Kang Xu's Project Portfolio Page",
+      "headings": {
+        "project-tutorium": "Project: Tutorium"
       },
       "headingKeywords": {}
     },
