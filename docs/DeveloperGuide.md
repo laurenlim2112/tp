@@ -11,12 +11,6 @@ pageNav: 3
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Acknowledgements**
-
-_{ list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well }_
-
---------------------------------------------------------------------------------------------------------------------
-
 ## **Setting up, getting started**
 
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
@@ -57,13 +51,15 @@ The *Sequence Diagram* below shows how the components interact with each other f
 Each of the four main components (also shown in the diagram above),
 
 * defines its *API* in an `interface` with the same name as the Component.
-* implements its functionality using a concrete `{Component Name}Manager` class (which follows the corresponding API `interface` mentioned in the previous point.
+* implements its functionality using a concrete `{Component Name}Manager` class (which follows the corresponding API `interface` mentioned in the previous point).
 
 For example, the `Logic` component defines its API in the `Logic.java` interface and implements its functionality using the `LogicManager.java` class which follows the `Logic` interface. Other components interact with a given component through its interface rather than the concrete class (reason: to prevent outside component's being coupled to the implementation of a component), as illustrated in the (partial) class diagram below.
 
 <puml src="diagrams/ComponentManagers.puml" width="300" />
 
 The sections below give more details of each component.
+
+<div style="page-break-after: always;"></div>
 
 ### UI component
 
@@ -81,6 +77,8 @@ The `UI` component,
 * listens for changes to `Model` data so that the UI can be updated with the modified data.
 * keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
 * depends on some classes in the `Model` component, as it displays `Student` object residing in the `Model`.
+
+<div style="page-break-after: always;"></div>
 
 ### Logic component
 
@@ -114,6 +112,8 @@ How the parsing works:
 * When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
 * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 
+<div style="page-break-after: always;"></div>
+
 ### Model component
 **API** : [`Model.java`](https://github.com/AY2324S1-CS2103T-W13-2/tp/blob/master/src/main/java/seedu/address/model/Model.java)
 
@@ -135,6 +135,7 @@ The `Model` component,
 
 </box>
 
+<div style="page-break-after: always;"></div>
 
 ### Storage component
 
@@ -150,6 +151,8 @@ The `Storage` component,
 ### Common classes
 
 Classes used by multiple components are in the `seedu.addressbook.commons` package.
+
+<div style="page-break-after: always;"></div>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -194,6 +197,8 @@ The following activity diagram summarizes what happens when a user executes a `f
     * Less in line with users' expectations of a `filter` command; not as intuitive.
 * We made the choice of Alternative 1 over Alternative 2 as we found that more intuitive commands would be easier for users to learn and eventually master.
 
+<div style="page-break-after: always;"></div>
+
 ### uplevel, undolevel feature
 
 #### Implementation
@@ -226,12 +231,14 @@ The following activity diagram summarizes what happen when a user executes a `Up
     * User will need to perform those "in-between" commands again.
 * Alternative 2: Keep track of what the user have done after any `uplevel` command.
   * Pros:
-    * User will not need to perform those "in-between" commands again after doing `undolevel` to undone the sec level update.
+    * User will not need to perform those "in-between" commands again after doing `undolevel` to undo the sec level update.
   * Cons:
     * Less in line with users' expectations of reverting student records state to be before an `uplevel` command.
     * May have conflict between those "in-between" commands and `undolevel` command. E.g., edit a student's sec level and then perform `undolevel`.
     * Decline in performance due to the need to keep track every operation after `uplevel`.
 * We made the choice of Alternative 1 over Alternative 2 as undolevel is provided in case a user accidentally perform `uplevel` that the user didn't intend to. As such, we found that Alternative 1 is more in line of users' expectations and will not mess up the logic.
+
+<div style="page-break-after: always;"></div>
 
 ### Sort feature
 
@@ -271,13 +278,15 @@ The following activity diagram summarizes what happens when a user executes a `s
     * Users have to resort the student list for every launch.
 * We made the choice of Alternative 1 over Alternative 2 as we insist on providing greater convenience.
 
+<div style="page-break-after: always;"></div>
+
 ### Import feature
 
 #### Implementation
 
 The `import` command allows the user to import .csv files containing their students' data in one go so that they do not need to add them one-by-one.
 
-When the user enters a import command, the `AddressBookParser` parses the user's input using `ImportCommandParser` and returns a `ImportCommand`.
+When the user enters an import command, the `AddressBookParser` parses the user's input using `ImportCommandParser` and returns a `ImportCommand`.
 
 The following sequence diagram shows how the `import` command works. In this example, the user is executing the following command: `import student_data.csv`.
 
@@ -300,11 +309,12 @@ The following activity diagram summarizes what happens when a user executes a `i
     * Users would experience less flexibility when using the command (for instance, users need to ensure their column in their .csv files matches the sequence).
 * Alternative 2: Flexible column sequence for data in the imported .csv files.
   * Pros:
-    * Greater flexibility for users when importing students'data.
+    * Greater flexibility for users when importing students' data.
   * Cons:
     * Higher chance in wrong a splitting of students' data.
 * We made the choice of Alternative 1 over Alternative 2 as we found that a fixed format would be easier for users to remember and use in the .csv files.
 
+<div style="page-break-after: always;"></div>
 
 ### Table feature
 
@@ -315,7 +325,7 @@ When the user enters a table command, the `AddressBookParser` parses the user's 
 
 Note that there is no specifically a TableCommandParser for `TableCommand` just like `ListCommand`, `ExitCommand` and `HelpCommand`. The `AddressBookParser` can parse and return a `TableCommand`directly.
 
-The parameters entered by user expected for a table command are either `g/`, `s/` and `l/`. When the `TableCommand` instance created by `AddressBookParser` executes, it will return the corresponding CommamdResult. E.g. `GenderTableCommandResult` created for the case `table g/` is entered by user. This `XXXTableCommandResult` carries the counts for each category that will be used for generating the table.
+The parameters entered by user expected for a table command are either `g/`, `s/` and `l/`. When the `TableCommand` instance created by `AddressBookParser` executes, it will return the corresponding CommandResult. E.g. `GenderTableCommandResult` created for the case `table g/` is entered by user. This `XXXTableCommandResult` carries the counts for each category that will be used for generating the table.
 
 The following sequence diagram shows how the `table` command works. In this example, the user is executing the following command: `table s/`
 
@@ -336,11 +346,13 @@ The following activity diagram summarizes what happens when a user executes a `t
   * Cons: May not be suitable when we want to create a complex statistical table, e.g. a two-dimensional table.
 
 * **Alternative 2:** Create a CommandParser specifically for TableCommand.
-  * Pros: Provides a good abstraction when we are dealing with two dimensional table.
-  * Cons: May be reduntant when we only want to create one dimensional table and the number of possible category is less.
+  * Pros: Provides a good abstraction when we are dealing with a two-dimensional table.
+  * Cons: May be redundant when we only want to create one dimensional table and the number of possible category is less.
 
 * We made the choice of Alternative 1 over Alternative 2 as we found that the table we intend to create so far is one dimensional table and there are only three possible categories, that are , `g/` for gender, `s/` for subject and `l/` for sec-level.
   _{more aspects and alternatives to be added}_
+
+<div style="page-break-after: always;"></div>
 
 ### Export feature
 
@@ -381,6 +393,7 @@ The following activity diagram summarizes what happens when a user executes a `e
     * Getting a small typo in the path is frustrating.
 * We made the choice of Alternative 1 over Alternative 2 as we insist on providing greater convenience.
 
+<div style="page-break-after: always;"></div>
 
 ### \[Proposed\] Undo/redo feature
 
@@ -471,6 +484,8 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 _{more aspects and alternatives to be added}_
 
+<div style="page-break-after: always;"></div>
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Documentation, logging, testing, configuration, dev-ops**
@@ -498,8 +513,6 @@ _{more aspects and alternatives to be added}_
 **Value proposition**: Our product will take in data as inputs and return statistical analysis.
 Instead of showing information of independent individuals, our product aims to provide quantitative data analysis of
 students. This allows users to draw conclusions on commonalities among students and their demographics, offering insights on marketing strategies.
-
-
 
 ### User stories
 
@@ -538,6 +551,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* `     | As a tuition centre admin staff    | I can schedule my marketing campaigns and events                             | so that I know when my marketing events are.                                                     |
 
 *{More to be added}*
+
+<div style="page-break-after: always;"></div>
 
 ### Use cases
 
@@ -821,6 +836,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
 * **Student data**: Name, phone number, email, address, gender, sec level, nearest MRT and subject(s) for each student
 
+<div style="page-break-after: always;"></div>
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Appendix: Instructions for Manual Testing**
@@ -865,7 +882,7 @@ testers are expected to do more *exploratory* testing.
 ### Importing student data
 
 1. Importing student data.
-  1. Prerequisites: A [sample CSV file]([student_data_test.csv](https://github.com/AY2324S1-CS2103T-W13-2/tp/files/13331810/student_data_test.csv)) has been downloaded into the same folder as Tutorium.
+  1. Prerequisites: A [sample CSV file](https://github.com/AY2324S1-CS2103T-W13-2/tp/files/13331810/student_data_test.csv) has been downloaded into the same folder as Tutorium.
   2. Test case: `import student_data_test.csv`<br>
      Expected: All students in the CSV file are added to the list.
 
@@ -966,6 +983,9 @@ testers are expected to do more *exploratory* testing.
   1. Delete a random chunk of lines from the data file. <br>
      Expected: The app launches normally with an empty data file.
 
+<div style="page-break-after: always;"></div>
+--------------------------------------------------------------------------------------------------------------------
+
 ## **Appendix: Effort**
 If the implementation effort required to create AB3 from scratch is 10, we estimate that the effort we spent to create
 Tutorium is 11.
@@ -997,6 +1017,9 @@ Listed below are the enhancements we managed to add into Tutorium.
 * Import feature to help users transition easily from other student management applications.
 * Data visualisation features (bar charts, tables and line graphs) added to enable users to conduct analysis on student data.
 * Secondary school level (sec level) updating, to optimise the process of increasing students' sec levels at the beginning of each academic year.
+
+<div style="page-break-after: always;"></div>
+--------------------------------------------------------------------------------------------------------------------
 
 ## **Appendix: Planned Enhancements**
 * Improving the phrasing of messages displayed to the user.
