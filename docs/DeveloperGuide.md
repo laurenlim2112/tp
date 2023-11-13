@@ -864,7 +864,7 @@ testers are expected to do more *exploratory* testing.
 
 ### Listing all students
 1. Listing all students.
-  1. Prerequisites: Student list contains at least 1 student.
+  1. Prerequisites: The list of students in Tutorium is not empty.
   2. Test case: `list`<br>
      Expected: A list of all students is displayed.
   3. Test case: `list 123`<br>
